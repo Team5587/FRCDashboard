@@ -81,7 +81,7 @@ header {
     height: 80vh;
     overflow: hidden;
     background-color: #333;
-    background-image: url('cam0url');
+    background-image: url('http://10.55.87.2:1181/?action=stream');
 
 }
 #tuning {
