@@ -5,8 +5,7 @@ The dashboard's code is designed to be 100% accessible, tweakable, and expandabl
 
 **Contributions are VERY welcome! Please feel free to open a pull request or issue!**
 
-![Screenshot slideshow](images/screenshots.gif)
-![1132's 2017 Dashboard](images/example-1132.jpg)
+![Screenshot slideshow](screenshots.gif)
 
 ## Setup
 ### Dependencies

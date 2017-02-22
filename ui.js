@@ -13,6 +13,11 @@ var ui = {
 	robotDiagram: {
 		arm: document.getElementById('robot-arm')
 	},
+	camera: {
+		viewer: document.getElementById('camera'),
+		id: 0,
+		srcs: ['http://10.55.87.2:1181/?action=stream','http://10.55.87.2:1182/?action=stream']
+	},
 	example: {
 		button: document.getElementById('example-button'),
 		readout: document.getElementById('example-readout')
@@ -25,14 +30,6 @@ var ui = {
 		set: document.getElementById('set'),
 		get: document.getElementById('get')
 	},
-  camera: {
-	viewer: document.getElementById('camera'),
-	id: 0,
-	srcs: [
-          'http://10.55.87.2:1181/?action=stream',
-          'http://10.55.87.2:1182/?action=stream'
-      ]
-    }
 	autoSelect: document.getElementById('auto-select'),
     armPosition: document.getElementById('arm-position')
 };
@@ -259,10 +256,9 @@ ui.autoSelect.onchange = function() {
 ui.armPosition.oninput = function() {
 	NetworkTables.setValue('/SmartDashboard/arm/encoder', parseInt(this.value));
 };
+
 ui.camera.viewer.onclick = function() {
-    ui.camera.id += 1;
-	if (ui.camera.id === ui.camera.srcs.length) ui.camera.id = 0;
-	ui.camera.viewer.style.backgroundImage = 'url(' + ui.camera.srcs[ui.camera.id] + ')';
-	if (ui.camera.id === 1) ui.camera.viewer.style.transform = 'rotate(90deg)';
-	if (ui.camera.id === 0) ui.camera.viewer.style.transform = 'rotate(0deg)';
+	ui.camera.id += 1;
+		if(ui.camera.id == ui.camera.srcs.length) ui.camera.id = 0;
+		ui.camera.viewer.style.backgroundImage = 'url(' + ui.camera.srcs[ui.camera.id] + ')';
 };
