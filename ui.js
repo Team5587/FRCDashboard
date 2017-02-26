@@ -31,7 +31,7 @@ var ui = {
 		get: document.getElementById('get')
 	},
 	autoSelect: document.getElementById('auto-select'),
-    armPosition: document.getElementById('arm-position')
+  armPosition: document.getElementById('arm-position')
 };
 
 // Sets function to be called on NetworkTables connect. Commented out because it's usually not necessary.
@@ -130,7 +130,7 @@ function onValueChanged(key, value, isNew) {
 			}
 			NetworkTables.setValue(key, false);
 			break;
-		case '/SmartDashboard/autonomous/options': // Load list of prewritten autonomous modes
+		case '/SmartDashboard/Auto Chooser/options/': // Load list of prewritten autonomous modes
 			// Clear previous list
 			while (ui.autoSelect.firstChild) {
 				ui.autoSelect.removeChild(ui.autoSelect.firstChild);
@@ -142,9 +142,9 @@ function onValueChanged(key, value, isNew) {
 				ui.autoSelect.appendChild(option);
 			}
 			// Set value to the already-selected mode. If there is none, nothing will happen.
-			ui.autoSelect.value = NetworkTables.getValue('/SmartDashboard/currentlySelectedMode');
+			ui.autoSelect.value = NetworkTables.getValue('/SmartDashboard/Auto Chooser/selected');
 			break;
-		case '/SmartDashboard/autonomous/selected':
+		case '/SmartDashboard/Auto Chooser/selected':
 			ui.autoSelect.value = value;
 			break;
 	}
@@ -249,7 +249,7 @@ ui.tuning.get.onclick = function() {
 
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {
-	NetworkTables.setValue('/SmartDashboard/autonomous/selected', this.value);
+	NetworkTables.setValue('/SmartDashboard/Auto Chooser/selected', this.value);
 };
 
 // Get value of arm height slider when it's adjusted
