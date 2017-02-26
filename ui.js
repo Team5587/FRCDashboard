@@ -260,5 +260,7 @@ ui.armPosition.oninput = function() {
 ui.camera.viewer.onclick = function() {
 	ui.camera.id += 1;
 		if(ui.camera.id == ui.camera.srcs.length) ui.camera.id = 0;
+		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(0deg)";
+		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(90deg)";
 		ui.camera.viewer.style.backgroundImage = 'url(' + ui.camera.srcs[ui.camera.id] + ')';
 };
