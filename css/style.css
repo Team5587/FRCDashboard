@@ -77,8 +77,8 @@ header {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 50vw;
-    height: 80vh;
+    width: 80vmin;
+    height: 80vmin;
     overflow: hidden;
     background-color: #333;
     background-repeat: no-repeat;
@@ -88,8 +88,8 @@ header {
     background-image: url('http://10.55.87.2:1181/?action=stream');
 }
 #tuning {
-    width: 50vw;
-    height: 80vh;
+    width: 80vmin;
+    height: 80vmin;
     bottom: 0;
     left: 0;
 }

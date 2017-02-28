@@ -58,7 +58,7 @@ function onValueChanged(key, value, isNew) {
 
 	// This switch statement chooses which UI element to update when a NetworkTables variable changes.
 	switch (key) {
-		case '/SmartDashboard/drive/navx/yaw': // Gyro rotation
+		case '/SmartDashboard/Gyro': // Gyro rotation
 			ui.gyro.val = value;
 			ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
 			if (ui.gyro.visualVal < 0) { // Corrects for negative values
@@ -130,7 +130,7 @@ function onValueChanged(key, value, isNew) {
 			}
 			NetworkTables.setValue(key, false);
 			break;
-		case '/SmartDashboard/Auto Chooser/options/': // Load list of prewritten autonomous modes
+		case '/SmartDashboard/Auto Chooser/options': // Load list of prewritten autonomous modes
 			// Clear previous list
 			while (ui.autoSelect.firstChild) {
 				ui.autoSelect.removeChild(ui.autoSelect.firstChild);
@@ -224,7 +224,7 @@ ui.gyro.container.onclick = function() {
 	// Store previous gyro val, will now be subtracted from val for callibration
 	ui.gyro.offset = ui.gyro.val;
 	// Trigger the gyro to recalculate value.
-	onValueChanged('/SmartDashboard/drive/navx/yaw', ui.gyro.val);
+	onValueChanged('/SmartDashboard/Gyro', ui.gyro.val);
 };
 
 // Open tuning section when button is clicked
@@ -263,4 +263,5 @@ ui.camera.viewer.onclick = function() {
 		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(0deg)";
 		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(90deg)";
 		ui.camera.viewer.style.backgroundImage = 'url(' + ui.camera.srcs[ui.camera.id] + ')';
+		console.log(ui.camera.id);
 };
