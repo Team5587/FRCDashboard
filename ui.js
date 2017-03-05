@@ -121,7 +121,7 @@ function onValueChanged(key, value, isNew) {
 						return;
 					} else if (s <= 15) {
 						// Flash timer if less than 15 seconds left
-						ui.timer.style.color = (s % 2 === 0) ? '#FF3030' : 'transparent';
+						ui.timer.style.color = (s % 2 === 0) ? '#FF3030' : '#FFFFFF';
 					} else if (s <= 30) {
 						// Solid red timer when less than 30 seconds left.
 						ui.timer.style.color = '#FF3030';
