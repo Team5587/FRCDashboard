@@ -84,6 +84,7 @@ header {
     background-repeat: no-repeat;
     background-size: contain;
     background-origin: inherit;
+    transform: rotate(90deg);
     /* You'll need to mess with this a bit to get your camera to work. Replace the url with a live-updating image feed from your camera. Using other camera streaming systems will require some tweaking. */
     background-image: url('http://10.55.87.2:1181/?action=stream');
 }
@@ -139,10 +140,8 @@ text {
     bottom: 1px;
     right: 1vw;
 }
-#robot-arm {
-    -webkit-transform-origin: right;
-    -ms-transform-origin: right;
-    transform-origin: right;
+#winch {
+    fill: #00F;
 }
 #team {
     font-size: 28px;

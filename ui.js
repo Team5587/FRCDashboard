@@ -69,18 +69,21 @@ function onValueChanged(key, value, isNew) {
 			break;
 			// The following case is an example, for a robot with an arm at the front.
 			// Info on the actual robot that this works with can be seen at thebluealliance.com/team/1418/2016.
-		case '/SmartDashboard/arm/encoder':
-			// 0 is all the way back, 1200 is 45 degrees forward. We don't want it going past that.
-			if (value > 1140) {
-				value = 1140;
-			} else if (value < 0) {
-				value = 0;
+		case '/SmartDashboard/winch_state':
+			// Color Diagram for useful info
+			var color = "#00F";
+			if(value == 1){
+				color = "#00F";
 			}
-			// Calculate visual rotation of arm
-			var armAngle = value * 3 / 20 - 45;
+			else if(value == 2){
+				color = "#F90";
+			}
+			else if(value = 3){
+				color = "#0F0"
+			}
 
-			// Rotate the arm in diagram to match real arm
-			ui.robotDiagram.arm.style.transform = 'rotate(' + armAngle + 'deg)';
+
+			ui.robotDiagram.arm.style.fill = color;
 			break;
 			// This button is just an example of triggering an event on the robot by clicking a button.
 		case '/SmartDashboard/example_variable':
@@ -260,8 +263,8 @@ ui.armPosition.oninput = function() {
 ui.camera.viewer.onclick = function() {
 	ui.camera.id += 1;
 		if(ui.camera.id == ui.camera.srcs.length) ui.camera.id = 0;
-		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(0deg)";
 		if(ui.camera.id == 0) ui.camera.viewer.style.transform = "rotate(90deg)";
+		if(ui.camera.id == 1) ui.camera.viewer.style.transform = "rotate(0deg)";
 		ui.camera.viewer.style.backgroundImage = 'url(' + ui.camera.srcs[ui.camera.id] + ')';
 		console.log(ui.camera.id);
 };
