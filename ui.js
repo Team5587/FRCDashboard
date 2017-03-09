@@ -31,7 +31,7 @@ var ui = {
 		get: document.getElementById('get')
 	},
 	autoSelect: document.getElementById('auto-select'),
-  armPosition: document.getElementById('arm-position')
+  winch: document.getElementById('winch')
 };
 
 // Sets function to be called on NetworkTables connect. Commented out because it's usually not necessary.
@@ -83,7 +83,7 @@ function onValueChanged(key, value, isNew) {
 			}
 
 
-			ui.robotDiagram.arm.style.fill = color;
+			ui.winch.style.fill = color;
 			break;
 			// This button is just an example of triggering an event on the robot by clicking a button.
 		case '/SmartDashboard/example_variable':
